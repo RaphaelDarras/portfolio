@@ -25,7 +25,15 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('login', (email, password) => {
-    cy.get('#user-name').type(email)
-    cy.get('#password').type(password)
-    cy.get('#login-button').click()
+    cy.get('#user-name')
+      .should('have.value','')
+      .type(email)
+      .should('have.value', email)
+    cy.get('#password')
+      .should('have.value','')
+      .type(password)
+      .should('have.value', password)
+    cy.get('#login-button')
+      .should('have.value','Login')
+      .click()
 })
