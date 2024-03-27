@@ -10,6 +10,10 @@
   "author": "raphael.darrras@gmail.com",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^12.17.4"
+    "@badeball/cypress-cucumber-preprocessor": "^20.0.3",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "cypress": "^12.17.4",
+    "esbuild": "^0.20.2",
+    "typescript": "^5.4.3"
   }
 }
