@@ -1,7 +1,7 @@
 describe('Login spec', () => {
 
   it('Log with standard user', () => {
-    cy.visit('https://www.saucedemo.com/')
+    cy.visit('/')
 
     cy.get('#user-name').type('standard_user')
     cy.get('#password').type('secret_sauce')
@@ -12,7 +12,7 @@ describe('Login spec', () => {
   })
 
   it('Log with locked out user', () => {
-    cy.visit('https://www.saucedemo.com/')
+    cy.visit('/')
 
     cy.get('#user-name').type('locked_out_user')
     cy.get('#password').type('secret_sauce')
