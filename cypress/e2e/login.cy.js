@@ -1,8 +1,11 @@
 describe('Login spec', () => {
+  
+  beforeEach(() => {
+    cy.visit('/')
+  })
+
 
   it('Log with standard user', () => {
-    cy.visit('/')
-
     cy.login('standard_user', 'secret_sauce')
 
     cy.get('#header_container')
@@ -10,8 +13,6 @@ describe('Login spec', () => {
   })
 
   it('Log with locked out user', () => {
-    cy.visit('/')
-
     cy.get('.error-message-container').should('not.have.class','error')
 
     cy.login('locked_out_user', 'secret_sauce')
