@@ -25,6 +25,7 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('login', (email, password) => {
+    cy.visit('/')
     cy.get('#user-name')
       .should('have.value','')
       .type(email)
@@ -36,4 +37,10 @@ Cypress.Commands.add('login', (email, password) => {
     cy.get('#login-button')
       .should('have.value','Login')
       .click()
+})
+
+Cypress.Commands.add('inventoryPageCheck', () => {
+  cy.url().should('include', 'inventory.html')
+  cy.get('#header_container')
+  cy.get('#inventory_container')
 })

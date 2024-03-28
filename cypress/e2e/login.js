@@ -11,9 +11,7 @@ When("I enter the {string} user credentials", (user) => {
 })
 
 Then("I am on the inventory page", () => {
-  cy.url().should('include', 'inventory.html')
-  cy.get('#header_container')
-  cy.get('#inventory_container')
+  cy.inventoryPageCheck()
 })
 
 Then("I see an error message on the login page", () => {
