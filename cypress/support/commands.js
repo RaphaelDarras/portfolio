@@ -44,3 +44,73 @@ Cypress.Commands.add('inventoryPageCheck', () => {
   cy.get('#header_container')
   cy.get('#inventory_container')
 })
+
+Cypress.Commands.add('inventoryItemCheck', (index) => {
+  cy.get('[data-test=inventory-item]')
+    .eq(index)
+    .then(item => {
+      cy.inventoryItemNameCheck(index, item)
+      cy.inventoryItemImgCheck(index, item)
+      cy.inventoryItemPriceCheck(index, item)
+      cy.inventoryItemButtonCheck(item)
+    })
+})
+
+Cypress.Commands.add('inventoryItemNameCheck', (index, item) => {
+  cy.fixture('inventoryItems').then(inventoryItems => {
+    cy.get(item)
+      .children('[data-test="inventory-item-description"]')
+      .children('div.inventory_item_label')
+      .children('a')
+      .children('[data-test="inventory-item-name"]')
+      .should('have.text', inventoryItems.list[index].nameText)
+  })
+})
+
+Cypress.Commands.add('inventoryItemImgCheck', (index, item) => {
+  cy.fixture('inventoryItems').then(inventoryItems => {
+    cy.get(item)
+      .children('div.inventory_item_img')
+      .children('a')
+      .children('img.inventory_item_img')
+      .should('have.attr','data-test', inventoryItems.list[index].imgDataTest)
+  })
+})
+
+Cypress.Commands.add('inventoryItemPriceCheck', (index, item) => {
+  cy.fixture('inventoryItems').then(inventoryItems => {
+    cy.get(item)
+      .children('[data-test="inventory-item-description"]')
+      .children('div.pricebar')
+      .children('[data-test="inventory-item-price"]')
+      .should('have.text', inventoryItems.list[index].price)
+  })
+})
+
+Cypress.Commands.add('inventoryItemButtonCheck', (item) => {
+  cy.get(item)
+    .children('[data-test="inventory-item-description"]')
+    .children('div.pricebar')
+    .children('button')
+    .should('have.text', 'Add to cart')
+})
+
+Cypress.Commands.add('addToCart', (item) => {
+  cy.get('div.inventory_item_name ').contains(item)
+    .parent('a')
+    .parent('div.inventory_item_label')
+    .siblings('div.pricebar')
+    .children('button')
+    .should('have.text', 'Add to cart')
+    .click()
+})
+
+Cypress.Commands.add('removeFromCart', (item) => {
+  cy.get('div.inventory_item_name ').contains(item)
+    .parent('a')
+    .parent('div.inventory_item_label')
+    .siblings('div.pricebar')
+    .children('button')
+    .should('have.text', 'Remove')
+    .click()
+})
