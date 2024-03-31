@@ -40,6 +40,7 @@ Cypress.Commands.add('login', (email, password) => {
 })
 
 Cypress.Commands.add('inventoryPageCheck', () => {
+  // Simple checks are done to ensure the right page is displayed. Deeper checks will be performed in other dedicated tests
   cy.url().should('include', 'inventory.html')
   cy.get('#header_container')
   cy.get('#inventory_container')
