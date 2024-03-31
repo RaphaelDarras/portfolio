@@ -1,5 +1,6 @@
 Feature: Inventory
 
+# Background key acts as a beforeEach. 
     Background: Log as standard user
     	Given I am logged as 'standard' user
 
@@ -9,6 +10,7 @@ Feature: Inventory
 		Then every inventory item is present and complete
 
 	Scenario: Add an item to the cart
+	# It is possible to have several dynamic values in the same step
 		When I click on the 'Add to cart' button of the 'Sauce Labs Backpack'
 		Then the cart total has been 'increased'
 

@@ -47,9 +47,12 @@ Cypress.Commands.add('inventoryPageCheck', () => {
 })
 
 Cypress.Commands.add('inventoryItemCheck', (index) => {
+  // DOM elements could have been passed with/instead of index but it would have been less reusable
   cy.get('[data-test=inventory-item]')
+  // cy.eq allows to focus on a specific element of the DOM elements array
     .eq(index)
     .then(item => {
+      // DOM element is directly passed to the command
       cy.inventoryItemNameCheck(index, item)
       cy.inventoryItemImgCheck(index, item)
       cy.inventoryItemPriceCheck(index, item)
@@ -59,7 +62,9 @@ Cypress.Commands.add('inventoryItemCheck', (index) => {
 
 Cypress.Commands.add('inventoryItemNameCheck', (index, item) => {
   cy.fixture('inventoryItems').then(inventoryItems => {
+    // Directly focusing on the DOM element we want
     cy.get(item)
+    // Then navigating in the DOM to go to the text
       .children('[data-test="inventory-item-description"]')
       .children('div.inventory_item_label')
       .children('a')
@@ -89,6 +94,7 @@ Cypress.Commands.add('inventoryItemPriceCheck', (index, item) => {
 })
 
 Cypress.Commands.add('inventoryItemButtonCheck', (item) => {
+  // Reusability could be improved to check 'Remove' text 
   cy.get(item)
     .children('[data-test="inventory-item-description"]')
     .children('div.pricebar')
