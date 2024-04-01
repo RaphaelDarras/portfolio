@@ -4,16 +4,21 @@
   "description": "Raphael's way of showing his QA technical skills",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run",
-    "test:open": "npx cypress open"
+    "test": "mocha ./api/*.spec.mjs && npx cypress run",
+    "test:e2e": "npx cypress run",
+    "test:e2e:open": "npx cypress open",
+    "test:api": "mocha ./api/*.spec.mjs"
   },
   "author": "raphael.darrras@gmail.com",
   "license": "ISC",
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^20.0.3",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "chai": "^5.1.0",
     "cypress": "^12.17.4",
     "esbuild": "^0.20.2",
+    "mocha": "^10.4.0",
+    "supertest": "^6.3.4",
     "typescript": "^5.4.3"
   }
 }
