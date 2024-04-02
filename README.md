@@ -8,14 +8,25 @@ You need to have node.js and npm ready to use, then :
 npm install
 ```
 ## Run the tests
-### E2E
 
-To run headless tests, directly in terminal
+### All the tests  
 ```
 npm test
 ```
 
+### API  
+```
+npm test:api
+```
+
+### E2E
+
+To run headless tests, directly in terminal
+```
+npm test:e2e
+```
+
 To run the with Cypress desktop agent
 ```
-npm test:open
+npm test:e2e:open
 ```
