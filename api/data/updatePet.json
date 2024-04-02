@@ -1,0 +1,18 @@
+{
+    "id": 290342,
+    "category": {
+      "id": 1,
+      "name": "Fuzz"
+    },
+    "name": "Fuzz",
+    "photoUrls": [
+      "string"
+    ],
+    "tags": [
+      {
+        "id": 1,
+        "name": "Good Doggo"
+      }
+    ],
+    "status": "available"
+  }
