@@ -21,6 +21,8 @@ module.exports = defineConfig({
   e2e: {
     baseUrl: 'https://www.saucedemo.com/',
     specPattern: 'cypress/e2e/*.feature',
+    chromeWebSecurity: false,
+    video: false,
     setupNodeEvents
   }
 });

@@ -4,8 +4,8 @@
   "description": "Raphael's way of showing his QA technical skills",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./api/*.spec.mjs && npx cypress run",
-    "test:e2e": "npx cypress run",
+    "test": "mocha ./api/*.spec.mjs && npx cypress run  --headless --browser chrome",
+    "test:e2e": "npx cypress run --headless --browser chrome",
     "test:e2e:open": "npx cypress open",
     "test:api": "mocha ./api/*.spec.mjs"
   },
