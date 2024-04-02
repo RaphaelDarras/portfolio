@@ -79,7 +79,7 @@ describe('Test petstore\s pets endpoints', () => {
             })
     })
 
-    it('delete update Fuzz pet', (done) => {
+    it('should delete Fuzz pet', (done) => {
         request(baseUrl)
             .delete('v2/pet/'+fuzzPet.id)
             .set('Accept', 'application/json')
