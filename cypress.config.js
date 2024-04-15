@@ -13,7 +13,6 @@ async function setupNodeEvents(on, config) {
     })
   );
 
-  // Make sure to return the config object as it might have been modified by the plugin.
   return config;
 }
 

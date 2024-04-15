@@ -4,16 +4,13 @@ Given("I am on the login page", () => {
   cy.visit('/')
 })
 
-// Here is the dynamic step definition. The {string} is used to match the values in quotes in .feature file
 When("I enter the {string} user credentials", (user) => {
-  // All credentials are stored in ./fixtures/credentials.json
   cy.fixture('credentials').then(credentials => {
     cy.login(credentials[user], 'secret_sauce')
   })
 })
 
 Then("I am on the inventory page", () => {
-  // inventoryPageCheck is a custom command, see the details in ./support/commands.js
   cy.inventoryPageCheck()
 })
 

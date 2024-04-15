@@ -15,7 +15,6 @@ describe('Test petstore\s pets endpoints', () => {
             .set('content-type', 'application/json')
             .end(function(err, response) {
                 expect(response.statusCode).to.be.equal(200)
-                // storing created pet Id here to reuse later
                 fuzzPet = response.body
                 if(err) {
                     throw err
@@ -62,14 +61,10 @@ describe('Test petstore\s pets endpoints', () => {
             .set('Accept', 'application/json')
             .set('content-type', 'application/json')
             .end(function(err, response) {
-                // Comparing values to original pet file
-                // Except for tags.name which is the only value that was updated
                 expect(response.statusCode).to.be.equal(200)
                 expect(response.body.name).to.be.equal(fuzzPet.name)
                 expect(response.body.category.name).to.be.equal(fuzzPet.category.name)
-                // Making sure the new value is here
                 expect(response.body.tags.name).to.be.equal(updatePet.default.tags.name)
-                // Making sure the old value is gone
                 expect(response.body.tags[0].name).not.to.be.equal(fuzzPet.tags[0].name)
                 expect(response.body.status).to.be.equal(fuzzPet.status)
                 if(err) {
