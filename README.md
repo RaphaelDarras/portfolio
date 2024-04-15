@@ -1,5 +1,5 @@
 # portfolio
-The project has been created to show my technical skill to interested people.  
+The project has been created to show the world my technical skills.  
 All tests written by Raphaël Darras.
 
 ## Install Project
