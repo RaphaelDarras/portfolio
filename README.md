@@ -1,4 +1,4 @@
-# portfolio
+# Resume
 The project has been created to show the world my technical skills.  
 All tests written by Raphaël Darras.
 
